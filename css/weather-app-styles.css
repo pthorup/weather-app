@@ -1,0 +1,63 @@
+#weather-app {
+  background-color: lightgrey;
+  padding: 32px;
+}
+/* General */
+.weather-selectbox-container,
+.weather-selected-city-day,
+.weather-selected-city {
+  padding: 16px;
+}
+
+/*  City drop down menu */
+.weather-selectbox-container {
+  border: 1px solid green;
+  text-align: center;
+}
+
+/*  Chosen city display */
+.weather-selected-city-container {
+  border: 1px solid green;
+  display: flex;
+}
+
+.weather-selected-city {
+  border: 1px solid red;
+  flex: 1;
+  text-align: center;
+}
+
+.weather-selected-city-week {
+  border: 1px solid blue;
+  display: flex;
+  flex: 1.618;
+}
+
+.weather-selected-city-title {
+  font-size: 32px;
+}
+.weather-selected-city-date {
+  font-size: 16px;
+}
+.weather-selected-city-temp {
+  font-size: 48px;
+  margin: 16px;
+}
+.weather-selected-city-icon {
+}
+.weather-selected-city-desc {
+  font-size: 16px;
+}
+
+.weather-selected-city-day {
+  border: 1px solid green;
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.weather-selected-city-day-icon {
+  width: 100%;
+}

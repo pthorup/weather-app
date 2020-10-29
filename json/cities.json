@@ -1,0 +1,45 @@
+[
+   {
+      "city":"New York",
+      "currency":"USD",
+      "image":"usa.png",
+      "weatherCityID" : 5128638
+   },
+   {
+      "city":"Sydney",
+      "currency":"AUD",
+      "image":"au.svg",
+      "weatherCityID" : 2147714
+   },
+   {
+      "city":"London",
+      "currency":"GBP",
+      "image":"gb.png",
+      "weatherCityID" : 2643743
+   },
+   {
+      "city":"Madrid",
+      "currency":"EUR",
+      "image":"eur.png",
+      "weatherCityID" : 6359304
+   },
+   {
+      "city" : "Rome",
+      "currency" : "EUR",
+      "image": "eur.png",
+      "weatherCityID" : 3169070
+  },
+  {
+      "city" : "Paris",
+      "currency" : "EUR",
+      "image": "eur.png",
+      "weatherCityID" : 6455259
+   },
+   {
+      "city" : "Montréal",
+      "currency" : "CAD",
+      "image": "cad.png",
+      "weatherCityID" : 6077246
+   }
+]
+
