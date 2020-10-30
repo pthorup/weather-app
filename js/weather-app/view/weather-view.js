@@ -64,7 +64,7 @@ class WeatherView {
     let html = `
     <div class="weather-selected-city-title">${city}</div>
     <div class="weather-selected-city-date">Idag</div>
-    <div class="weather-selected-city-temp">${temp}&#176;</div>
+    <div class="weather-selected-city-temp">${temp}&#176;C</div>
     <img class="weather-selected-city-icon" src="${iconUrl}" alt="${desc}">
     <div class="weather-selected-city-desc">${desc}</div>`;
 
@@ -88,7 +88,7 @@ class WeatherView {
       <div class="weather-selected-city-day">
         <div>${day}</div>
         <img class="weather-selected-city-day-icon" src="${iconUrl}" alt="${desc}">
-        <div>${temp}</div>
+        <div>${temp}&#176;C</div>
       </div>
       `;
     }

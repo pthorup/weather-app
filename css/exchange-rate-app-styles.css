@@ -1,0 +1,91 @@
+/* Exchange Rate list */
+
+.currency-table-container {
+  background-color: #f0f0f0;
+  padding: 24px;
+}
+
+.currency-table {
+  background-color: #c5d5c5;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.currency-table th {
+  padding: 16px;
+  text-align: left;
+}
+
+.currency-table td {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 16px;
+  width: 50%;
+}
+
+.currency-table td > * {
+  vertical-align: middle;
+}
+
+.currency-table-flag {
+  border-radius: 50%;
+  margin-right: 8px;
+  width: 24px;
+}
+
+/* Converter */
+.currency-converter-selectboxes {
+  display: flex;
+  align-items: center;
+}
+.currency-converter-select-from,
+.currency-converter-select-to {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: green;
+  border: none;
+  padding: 10px 20px 7px;
+  text-align: center;
+}
+
+.currency-converter-select-from {
+  flex: 2;
+}
+
+.currency-converter-select-to {
+  flex: 2;
+}
+
+.currency-converter-select-arrow {
+  flex: 1;
+  text-align: center;
+}
+
+.currency-converter-amount-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.currency-converter-amount,
+.currency-converter-selectboxes,
+.currency-submit-btn {
+  margin-bottom: 16px;
+}
+.currency-converter-amount {
+  flex: 1;
+  padding: 10px 20px 7px;
+}
+
+.currency-submit-btn {
+  flex: 1;
+  align-self: center;
+  border-radius: 0px;
+  padding: 10px 20px 7px;
+  border: none;
+}
+
+.currency-result {
+  background-color: red;
+  padding: 20px 10px;
+  text-align: right;
+}

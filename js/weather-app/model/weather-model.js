@@ -1,7 +1,5 @@
 class WeatherModel {
-  constructor() {
-    console.log('this is weather model');
-  }
+  constructor() {}
 
   async getCityInfo() {
     const responseCities = await fetch('../../json/cities.json');
