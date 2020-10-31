@@ -20,22 +20,22 @@ class WeatherView {
       <select name="weather-selectbox" class="weather-selectbox">`;
 
     cityInfo.forEach((item) => {
-      html += `<option data-cityid="${item.weatherCityID}" value="${item.city}">${item.city}</option>`;
+      html += `<option data-cityid="${item.weatherCityID}" data-city="${item.city}" data-country="${item.country}" value="${item.city}">${item.city}</option>`;
     });
     html += `</select>`;
 
     Helper.setHtml('.weather-selectbox-container', html);
   }
 
-  async displayWeather(info) {
-    const weatherData = await info;
-    const city = weatherData.city.name;
+  async displayWeather(weather, cityName, countryName) {
+    const weatherData = await weather;
+
     const dailyForecast = [];
 
     for (let i = 0; i < weatherData.list.length; i++) {
       const dayForecast = {};
 
-      // Forecasted date/hour begins according to local time. Hence start hour changes accordingly.
+      // Forecasted date/hour begins according to local time. Hence start hour changes all the time.
       const forecastedDate = weatherData.list[i].dt_txt;
       const getTimeOnly = forecastedDate.substr(-8);
       if (getTimeOnly === '12:00:00') {
@@ -53,19 +53,19 @@ class WeatherView {
         dailyForecast.push(dayForecast);
       }
     }
-    console.log(dailyForecast);
 
-    this.displayTodayWeather(city, dailyForecast);
+    this.displayTodayWeather(cityName, countryName, dailyForecast);
     this.displayDailyWeather(dailyForecast);
   }
 
-  displayTodayWeather(city, dailyForecast) {
+  displayTodayWeather(cityName, countryName, dailyForecast) {
     const temp = dailyForecast[0].temperature;
     const desc = dailyForecast[0].description;
     const iconUrl = `http://openweathermap.org/img/wn/${dailyForecast[0].icon}@2x.png`;
 
     let html = `
-    <div class="weather-selected-city-title">${city}</div>
+    <div class="weather-selected-city-name">${cityName}</div>
+    <div class="weather-selected-country-name">${countryName}</div>
     <div class="weather-selected-city-date">Idag</div>
     <div class="weather-selected-city-temp">${temp}&#176;C</div>
     <img class="weather-selected-city-icon" src="${iconUrl}" alt="${desc}">

@@ -4,11 +4,11 @@ class ExchangeRateModel {
   async getCurrencyData() {
     const response = await fetch('../../json/cities.json');
     const cityData = await response.json();
-    const cleanedCityData = this.removeDuplicates(cityData);
+    const cleanedCityData = this.removeCurrencyDuplicates(cityData);
 
     const apiKey = '33f35964dfade1391eac9a47';
-    const rateReponse = await fetch(`https://v6.exchangerate-api.com/v6/${apiKey}/latest/SEK`);
-    const exchangeRates = await rateReponse.json();
+    const rateResponse = await fetch(`https://v6.exchangerate-api.com/v6/${apiKey}/latest/SEK`);
+    const exchangeRates = await rateResponse.json();
 
     return {
       cities: cleanedCityData,
@@ -16,7 +16,8 @@ class ExchangeRateModel {
     };
   }
 
-  removeDuplicates(data) {
+  // Remove any duplicate currencies that shows up in other cities
+  removeCurrencyDuplicates(data) {
     const cityData = data;
     let newCurrencyData = [];
     let found;

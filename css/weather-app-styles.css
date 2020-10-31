@@ -81,12 +81,19 @@
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
 }
 
-.weather-selected-city-title {
+.weather-selected-city-name {
   font-size: 32px;
   color: #a2e6f5;
 }
+
+.weather-selected-country-name {
+  font-size: 12px;
+  color: #fff;
+  margin-bottom: 16px;
+}
 .weather-selected-city-date {
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 600;
   text-transform: uppercase;
   color: #dd902b;
 }

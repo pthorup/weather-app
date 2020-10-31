@@ -7,10 +7,6 @@ class ExchangeRateController {
     this.getExchangeRates();
   }
 
-  displayIntialRateLayout() {
-    this.exchangeRateView.displayIntialRateLayout();
-  }
-
   displayIntialConverterLayout() {
     this.exchangeRateView.displayIntialConverterLayout();
   }
