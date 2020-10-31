@@ -1,7 +1,28 @@
 #weather-app {
-  background-color: lightgrey;
-  padding: 32px;
+  background-image: url('../img/bg-weather.jpg');
+  background-size: cover;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
 }
+
+#weather-app:before {
+  position: absolute;
+  content: ' ';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+  background-color: rgba(21, 149, 148, 0.6);
+}
+
+#weather-app * {
+  position: relative;
+}
+
 /* General */
 .weather-selectbox-container,
 .weather-selected-city-day,
@@ -11,51 +32,84 @@
 
 /*  City drop down menu */
 .weather-selectbox-container {
-  border: 1px solid green;
   text-align: center;
+  background-color: rgba(161, 195, 189, 0.7);
+}
+
+.weather-selectbox-container span {
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #3b4745;
+}
+
+.weather-selectbox-container > * {
+  padding: 0px 16px;
+}
+
+.weather-selectbox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: rgba(6, 85, 118, 0.2);
+  background-image: url("data:image/svg+xml;utf8,<svg fill='orange' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='m12 21-12-18h24z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-position-y: 9px;
+  background-size: 10px;
+  border: 1px solid #dfdfdf;
+  border-radius: none;
+  margin-right: 2rem;
+  border: none;
+  color: #3b4745;
+  height: 30px;
+  width: 180px;
 }
 
 /*  Chosen city display */
 .weather-selected-city-container {
-  border: 1px solid green;
   display: flex;
 }
 
 .weather-selected-city {
-  border: 1px solid red;
   flex: 1;
   text-align: center;
 }
 
 .weather-selected-city-week {
-  border: 1px solid blue;
   display: flex;
-  flex: 1.618;
+  flex: 2;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
 }
 
 .weather-selected-city-title {
   font-size: 32px;
+  color: #a2e6f5;
 }
 .weather-selected-city-date {
   font-size: 16px;
+  text-transform: uppercase;
+  color: #dd902b;
 }
 .weather-selected-city-temp {
   font-size: 48px;
   margin: 16px;
 }
-.weather-selected-city-icon {
-}
+
 .weather-selected-city-desc {
   font-size: 16px;
 }
 
 .weather-selected-city-day {
-  border: 1px solid green;
   flex: 1;
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
+}
+
+.weather-selected-city-day > * {
+  margin-bottom: 20px;
+  text-transform: uppercase;
 }
 
 .weather-selected-city-day-icon {

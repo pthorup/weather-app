@@ -2,11 +2,11 @@
 
 .currency-table-container {
   background-color: #f0f0f0;
-  padding: 24px;
+  color: #3b4745;
 }
 
 .currency-table {
-  background-color: #c5d5c5;
+  background-color: #b4d1cc;
   border-collapse: collapse;
   width: 100%;
 }
@@ -14,6 +14,8 @@
 .currency-table th {
   padding: 16px;
   text-align: left;
+  font-weight: 500;
+  font-size: 16px;
 }
 
 .currency-table td {
@@ -33,6 +35,18 @@
 }
 
 /* Converter */
+#currency-converter-app {
+  /* background-color: #f78640; */
+  color: #3b4745;
+}
+
+.currency-converter-title,
+.currency-table-title {
+  font-weight: 500;
+  font-size: 16px;
+  margin-top: 0;
+  color: #149090;
+}
 .currency-converter-selectboxes {
   display: flex;
   align-items: center;
@@ -42,8 +56,8 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background-color: green;
-  border: none;
+  color: #f78640;
+  border: 1px solid #f78640;
   padding: 10px 20px 7px;
   text-align: center;
 }
@@ -74,6 +88,7 @@
 .currency-converter-amount {
   flex: 1;
   padding: 10px 20px 7px;
+  color: #149090;
 }
 
 .currency-submit-btn {
@@ -85,7 +100,12 @@
 }
 
 .currency-result {
-  background-color: red;
+  background-color: #e83d48;
   padding: 20px 10px;
   text-align: right;
+  color: #fff;
+}
+
+.currency-converter-amount-currency {
+  color: #1abdbd;
 }

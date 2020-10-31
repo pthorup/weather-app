@@ -3,7 +3,6 @@ class ExchangeRateController {
     this.exchangeRateModel = model;
     this.exchangeRateView = view;
 
-    this.displayIntialRateLayout();
     this.displayIntialConverterLayout();
     this.getExchangeRates();
   }

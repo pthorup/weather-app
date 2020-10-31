@@ -3,19 +3,10 @@ class ExchangeRateView {
     this.selectedCurrency;
   }
 
-  displayIntialRateLayout() {
-    const html = `
-        <div class="currency-table-container">
-          <table class="currency-table"></table>
-        </div>`;
-
-    Helper.setHtml('#currency-exchange-app', html);
-  }
-
   displayIntialConverterLayout() {
     const html = `
     <div class="currency-converter">
-        <h4>Valutaomvandlare</h4>
+        <h4 class="currency-converter-title">Valutaomvandlare</h4>
             <div class="currency-converter-selectboxes">
               <select class="currency-converter-select-from"></select>
               <span class="currency-converter-select-arrow">&rarr;</span>
@@ -37,7 +28,8 @@ class ExchangeRateView {
     let image;
     let rate;
     let html = `
-    <div class="currency-table-container" style="display: block">
+    <h4 class="currency-table-title">Växlingskurs</h4>
+    <div class="currency-table-container">
         <table class="currency-table">
         <tr>
           <th>Valuta</th>
@@ -59,12 +51,11 @@ class ExchangeRateView {
             </tr>`;
     }
 
-    Helper.setHtml('#currency-exchange-app', html);
+    Helper.setHtml('#currency-exchange-rate-app', html);
   }
 
   showCurrencyConverter(data) {
     const currencyData = data;
-    console.log(currencyData);
     let currency;
     let rate;
     let html;
@@ -76,6 +67,10 @@ class ExchangeRateView {
       rate = currencyData.rates.conversion_rates[currency];
 
       html += `<option value="${rate}">${currency}</option>`;
+
+      if (i === 0) {
+        document.querySelector('.currency-converter-amount').placeholder = `Ange belopp i ${currency}`;
+      }
     }
 
     Helper.setHtml('.currency-converter-select-from', html);
@@ -91,12 +86,17 @@ class ExchangeRateView {
     const getValueTo = Helper.getValue('.currency-converter-select-to');
     const getValueInput = Helper.getValue('.currency-converter-amount');
 
-    const selectedToBox = document.querySelector('.currency-converter-select-to');
-    const selectedCurrency = selectedToBox.options[selectedToBox.selectedIndex].text;
+    const selectedFromBox = document.querySelector('.currency-converter-select-from');
+    const selectedFromCurrency = selectedFromBox.options[selectedFromBox.selectedIndex].text;
+    document.querySelector(
+      '.currency-converter-amount',
+    ).placeholder = `Ange belopp i ${selectedFromCurrency}`;
 
+    const selectedToBox = document.querySelector('.currency-converter-select-to');
+    const selectedToCurrency = selectedToBox.options[selectedToBox.selectedIndex].text;
     const result = ((getValueInput / getValueFrom) * getValueTo).toFixed(2);
 
-    const amount = `${result} ${selectedCurrency}`;
+    const amount = `= ${result} <span class="currency-converter-amount-currency">${selectedToCurrency}</span>`;
 
     Helper.setHtml('.currency-result', amount);
   }

@@ -12,13 +12,12 @@ class WeatherController {
   }
 
   async displaySelectBox() {
-    let cityID;
     const cityInfo = await this.weatherModel.getCityInfo();
     await this.weatherView.displaySelectBox(cityInfo);
 
-    const element = document.querySelector('.weather-selectbox');
-
     // Display a default weather of first city
+    let cityID;
+    const element = document.querySelector('.weather-selectbox');
     cityID = element.selectedOptions[0].getAttribute('data-cityid');
     this.displayWeather(cityID);
 

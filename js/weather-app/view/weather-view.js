@@ -32,25 +32,28 @@ class WeatherView {
     const city = weatherData.city.name;
     const dailyForecast = [];
 
-    console.log(weatherData);
-
-    for (let i = 3; i < weatherData.list.length; i += 8) {
+    for (let i = 0; i < weatherData.list.length; i++) {
       const dayForecast = {};
 
-      console.log(weatherData.list[i].dt_txt);
+      // Forecasted date/hour begins according to local time. Hence start hour changes accordingly.
+      const forecastedDate = weatherData.list[i].dt_txt;
+      const getTimeOnly = forecastedDate.substr(-8);
+      if (getTimeOnly === '12:00:00') {
+        // Convert unix timestamp to get day name, that is shorten and in swedish
+        const day = new Date(weatherData.list[i].dt * 1000).toLocaleString('sv-SE', {
+          weekday: 'short',
+        });
 
-      // Convert unix timestamp to get day name, that is shorten and in swedish
-      const day = new Date(weatherData.list[i].dt * 1000).toLocaleString('sv-SE', {
-        weekday: 'short',
-      });
+        dayForecast.day = day;
+        dayForecast.time = weatherData.list[i].dt_txt;
+        dayForecast.description = weatherData.list[i].weather[0].description;
+        dayForecast.icon = weatherData.list[i].weather[0].icon;
+        dayForecast.temperature = weatherData.list[i].main.temp.toFixed(0);
 
-      dayForecast.day = day;
-      dayForecast.description = weatherData.list[i].weather[0].description;
-      dayForecast.icon = weatherData.list[i].weather[0].icon;
-      dayForecast.temperature = weatherData.list[i].main.temp.toFixed(0);
-
-      dailyForecast.push(dayForecast);
+        dailyForecast.push(dayForecast);
+      }
     }
+    console.log(dailyForecast);
 
     this.displayTodayWeather(city, dailyForecast);
     this.displayDailyWeather(dailyForecast);
