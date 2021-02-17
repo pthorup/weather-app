@@ -2,6 +2,8 @@
 
 A little weather app made using MVC Javascript and the [Open Weather API](https://openweathermap.org).
 
+[View Demo](https://stoic-panini-9d1ac2.netlify.app/)
+
 # Purpose
 
 The app was made as my solution to my JavaScript assignment.
